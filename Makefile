@@ -33,4 +33,4 @@ bin/example:
 all: bin/example
 
 clean:
-	rm -rf bin/period-rand bin/period-rand2 bin/period-det bin/ref-pi bin/ref-ln2
+	rm -rf bin/example bin/period-rand bin/period-rand2 bin/period-det bin/ref-pi bin/ref-ln2

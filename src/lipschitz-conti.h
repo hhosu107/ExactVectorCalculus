@@ -2,6 +2,7 @@
 #define LIPSCHITZ_CONTI_H
 #endif
 
+#include "iRRAM.h"
 #include "iRRAM/core.h"
 #include "iRRAM/FUNCTION.h"
 
