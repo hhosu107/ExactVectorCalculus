@@ -40,7 +40,7 @@ REAL cosine(REAL x){
   return limit(cos_TAYLOR, x);
 }
 
-REAL lip_deriv(REAL (*f)(REAL), REAL x, int lip, unsigned int log_eps){
+REAL lip_deriv(REAL (*f)(REAL), REAL x, int lip, int log_eps){
   INTEGER e = 1;
   for(int i=-1; i>=log_eps; i--){
     e *= (INTEGER)2;
@@ -70,10 +70,12 @@ void compute(){
   Lipschitz<REAL, REAL, INTEGER> cos_lip = new Lipschitz<REAL, REAL, INTEGER>(Cos, 1, std::vector<unsigned int>(1, 1), 1);
   */
 
-  unsigned int acc;
+  int acc;
   REAL x;
   int w;
+  int retry=0;
 
+  do{
   cout << "Print derivative of sin(x) and cos(x) with error bound 2^(-acc) and width w : Please input x, acc and w!\n";
   cin >> x;
   cin >> acc;
@@ -86,4 +88,7 @@ void compute(){
   cout << setRwidth(w) << sin_deriv << ", (d/dx)(cos(";
   cout << x << ")) = ";
   cout << setRwidth(w) << cos_deriv << ".\n";
+  cout << "wanna try once more? Answer 1 to retry.\n";
+  cin >> retry;
+  }while(retry > 0);
 }
